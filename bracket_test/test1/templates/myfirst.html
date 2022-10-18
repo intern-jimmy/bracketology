@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test Bracket 1</title>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.6.2.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-bracket/0.11.1/jquery.bracket.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-bracket/0.11.1/jquery.bracket.min.css" />
+</head>
+<body>
+
+<h1>Hello World!</h1>
+<p>Welcome to my first Django project!</p>
+<div id="data">{{ bracket|safe }}</div>
+<div class="single">
+</div>
+
+<div class="double">
+</div>
+
+<script>
+var bracket = {{data|safe}}
+
+$(function() {
+    
+    $('.single').bracket({
+      init: bracket });
+    
+  });
+</script>
+</body>
+</html>
