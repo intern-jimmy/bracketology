@@ -24,10 +24,62 @@ def index(request):
     print(json.dumps(data))
     return HttpResponse(template.render({'data': data}))
 
+def multiBracket(request):
+    template = loader.get_template('mysecond.html')
+    
+    """ 
+        1. Get ranking
+        2. Create the tournament
+        3. Split it in half
+            a. First tournament on left
+            b. Second tournament on right
+            c. Finals a thrid tournament
+    """
+    teamsRanked = getRankings()
+    tournamentRoundOne = babycup(teamsRanked)
+    half = int(len(tournamentRoundOne) / 2)
+    leftBracket = tournamentRoundOne[0:half]
+    rightBracket = tournamentRoundOne[half:len(tournamentRoundOne)]
+    #round 1 results
+    roundOneResults = getRoundOneResults()
+    leftR1Result = roundOneResults[0:half]
+    rightR1Result = roundOneResults[half:len(roundOneResults)]
+    #round 2 results
+    roundTwoResults = getRoundTwoResults()
+    leftR2Results = roundTwoResults[0:int(len(roundTwoResults)/2)]
+    rightR2Results = roundTwoResults[int(len(roundTwoResults)/2):]
+    #round 3 results
+    roundThreeResults = getRoundThreeResults()
+    leftR3Results = roundThreeResults[0:int(len(roundThreeResults)/2)]
+    rightR3Results = roundThreeResults[int(len(roundThreeResults)/2):]
 
+    #round 4 results
+    roundFourResults = getRoundFourResults()
+    leftR4Results = roundFourResults[0:int(len(roundFourResults)/2)]
+    rightR4Results = roundFourResults[int(len(roundFourResults)/2):]
+
+    #Round 5 results 
+    roundFiveResults = getRoundFiveResults()
+    leftR5Results = [[1, 0]]
+    rightR5Results = [[0, 1]]
+
+    #Championship Round
+    championshipMatchup = ["Pouring", "Franz"]
+    results = [[2,1]]
+
+    #Consulation Round
+    consulation = ["Guykid", "Kory"]
+    results = [[1,2]]
+
+    data = json.dumps({"left": {"teams":leftBracket, "results": [leftR1Result, leftR2Results, leftR3Results, leftR4Results, leftR5Results]}, 
+                       "right": {"teams":rightBracket, "results": [rightR1Result, rightR2Results, rightR3Results, rightR4Results, rightR5Results]}, 
+                       "championship":{"teams": [championshipMatchup], "results":[[2,1]]}, 
+                       "consulation":{"teams": [consulation], "results":[[1, 2]]} 
+                    })
+    return HttpResponse(template.render({'data': data}))
+ 
 def createTournament():
     numberOfTeams = randint(2, 64)
-    print(numberOfTeams)
 
     bracket = seed(numberOfTeams)
     print('maybe?')
