@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test Bracket 1</title>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.6.2.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-bracket/0.11.1/jquery.bracket.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-bracket/0.11.1/jquery.bracket.min.css" />
+</head>
+<body>
+
+<h1>Welcome to Vinny Bracket!</h1>
+<h3>Group A</h3>
+<div class="groupA"></div>
+<h3>Group B</h3>
+<div class="groupB"></div>
+<h3>Group C</h3>
+<div class="groupC"></div>
+<h3>Group D</h3>
+<div class="groupD"></div>
+<h3>Group E</h3>
+<div class="groupE"></div>
+<h3>Group F</h3>
+<div class="groupF"></div>
+<h3>Group G</h3>
+<div class="groupG"></div>
+<h3>Group H</h3>
+<div class="groupH"></div>
+<h3>Final Bracket</h3>
+<div class="roundOf32"></div>
+
+<script>
+var groupA = {"teams":[["A", "B"], ["C", "D"], ["E", "F"], ["G", "H"]], "results":[[[[1,0],[1,0],[1,0],[1,0]], [[1,0], [1, 0]]],[[[1,0], [1,0]], [[1,0], [1,0]]]]}
+var groupB = {"teams":[["I", "J"], ["K", "L"], ["M", "N"], ["O", "P"]], "results":[[[[1,0],[1,0],[1,0],[1,0]], [[1,0], [1, 0]]],[[[1,0], [1,0]], [[1,0], [1,0]]]]}
+var groupC = {"teams":[["Q", "R"], ["S", "T"], ["U", "V"], ["W", "X"]], "results":[[[[1,0],[1,0],[1,0],[1,0]], [[1,0], [1, 0]]],[[[1,0], [1,0]], [[1,0], [1,0]]]]}
+var groupD = {"teams":[["Y", "Z"], ["AA", "BB"], ["CC", "DD"], ["EE", "FF"]], "results":[[[[1,0],[1,0],[1,0],[1,0]], [[1,0], [1, 0]]],[[[1,0], [1,0]], [[1,0], [1,0]]]]}
+var groupE = {"teams":[["GG", "HH"], ["II", "JJ"], ["KK", "LL"], ["MM", "NN"]], "results":[[[[1,0],[1,0],[1,0],[1,0]], [[1,0], [1, 0]]],[[[1,0], [1,0]], [[1,0], [1,0]]]]}
+var groupF = {"teams":[["OO", "PP"], ["QQ", "RR"], ["SS", "TT"], ["UU", "VV"]], "results":[[[[1,0],[1,0],[1,0],[1,0]], [[1,0], [1, 0]]],[[[1,0], [1,0]], [[1,0], [1,0]]]]}
+var groupG = {"teams":[["WW", "XX"], ["YY", "ZZ"], ["1", "2"], ["3", "4"]], "results":[[[[1,0],[1,0],[1,0],[1,0]], [[1,0], [1, 0]]],[[[1,0], [1,0]], [[1,0], [1,0]]]]}
+var groupH = {"teams":[["5", "6"], ["7", "8"], ["9", "10"], ["69", "420"]], "results":[[[[1,0],[1,0],[1,0],[1,0]], [[1,0], [1, 0]]],[[[1,0], [1,0]], [[1,0], [1,0]]]]}
+
+var singleBracket = {"teams":[["A", "10"],["E", "6"],["B","9"],["F","5"],["I","2"],["M","XX"],["J","1"],["N","WW"],["Q","TT"],["U","PP"],["R","SS"],["V","OO"],["Y","LL"],["CC","HH"],["Z","KK"],["DD","GG"]]}
+ //AEBF
+ //IMJN
+ //QURV
+ //YCCZDD
+ //GGKKHHLL
+ //OOSSPPTT
+ //WW1XX2
+ //59610
+
+$(function() {
+    
+    $('.groupA').bracket({
+      init: groupA,
+      skipGrandFinalComeback: true,
+       });
+    
+    $('.groupB').bracket({
+      init: groupB,
+      skipGrandFinalComeback: true,
+    });
+
+    $('.groupC').bracket({
+      init: groupC,
+      skipGrandFinalComeback: true,
+    });
+
+    $('.groupD').bracket({
+      init: groupD,
+      skipGrandFinalComeback: true,
+    });
+
+       $('.groupE').bracket({
+      init: groupE,
+      skipGrandFinalComeback: true,
+       });
+
+       $('.groupF').bracket({
+      init: groupF,
+      skipGrandFinalComeback: true,
+       });
+
+       $('.groupG').bracket({
+      init: groupG,
+      skipGrandFinalComeback: true,
+       });
+
+       $('.groupH').bracket({
+      init: groupH,
+      skipGrandFinalComeback: true,
+       });
+       
+       $('.roundOf32').bracket({
+      init: singleBracket
+       });
+       
+  });
+</script>
+</body>
+</html>

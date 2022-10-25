@@ -77,7 +77,12 @@ def multiBracket(request):
                        "consulation":{"teams": [consulation], "results":[[1, 2]]} 
                     })
     return HttpResponse(template.render({'data': data}))
- 
+
+def vinnyBracket(request):
+    template = loader.get_template('vinny.html')
+    data = {}
+    return HttpResponse(template.render({'data': data}))
+
 def createTournament():
     numberOfTeams = randint(2, 64)
 
@@ -120,6 +125,11 @@ def seed(n):
                                            for el in ol] for e in s]
 
     pairings = np.array_split(ol, len(ol)/2)
+    return pairings
+
+def reseed(n):
+    pairings = []
+
     return pairings
 
 def getRankings():
